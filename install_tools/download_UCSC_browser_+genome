@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# AbbyMoore 7.11.18
+# Download UCSC genome browser and hg38 genome for future ref prep
+# REF http://genomewiki.ucsc.edu/index.php/Genes_in_gtf_or_gff_format
+
+mkdir /helga/cluster/abem16/software/genome_browser
+mkdir /helga/cluster/abem16/lung_project/ucsc_genome
+
+# Download genome browser utilities
+wget -O /helga/cluster/abem16/software/genome_browser http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/ 
+
+# Download hg38
+cd /helga/cluster/abem16/lung_project/ucsc_genome
+rsync -avzP rsync://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/ 
+gzip /helga/cluster/abem16/lung_project/ucsc_genome/*
+
+# Download separate .gz
+rsync -a -P rsync://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz 
+gzip -d /helga/cluster/abem16/lung_project/ucsc_genome/refGene.txt.gz
+
+# Delete bin column
+cut -f 2- /helga/cluster/abem16/lung_project/ucsc_genome/refGene.txt > /helga/cluster/abem16/lung_project/ucsc_genome/refGene.input
+
+# Convert to .gtf 
+/helga/cluster/abem16/software/genome_browser/genePredToGtf file /helga/cluster/abem16/lung_project/ucsc_genome/refGene.input /helga/cluster/abem16/lung_project/ucsc_genome/hg38refGene.gtf
+
+
+

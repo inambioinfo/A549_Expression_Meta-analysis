@@ -1,0 +1,5 @@
+Job -title {Get A549 data} -serialsubtasks 0 -subtasks {
+Task -title {get_A549_UTR.sh} -cmds {
+RemoteCmd {/helga/cluster/abem16/lung_project/scripts/pre-analysis/get_A549_UTR.sh} -service {Linux}
+}
+}

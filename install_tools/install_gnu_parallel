@@ -1,0 +1,11 @@
+#!/bin/bash
+# AbbyMoore 7.11.18
+# Install GNU parallel
+
+cd /helga/cluster/abem16/software
+wget http://ftp.gnu.org/gnu/parallel/parallel-20120522.tar.bz2
+tar -xvjf parallel*
+cd parallel*
+./configure --prefix=$HOME/
+make
+

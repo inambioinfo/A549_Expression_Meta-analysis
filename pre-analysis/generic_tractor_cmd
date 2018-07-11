@@ -1,0 +1,7 @@
+# AbbyMoore 7.11.18
+# This will run a job on Hampshire's tractor platform
+# Replace "name_of_your_script.alf" with the appropriate .alf file that references back to your script
+
+/opt/pixar/tractor-blade-1.7.2/python/bin/python2.6 /opt/pixar/tractor-blade-1.7.2/tractor-spool.py \
+ --engine=fly:8000 /helga/cluster/abem16
+/lung_project/scripts/pre-analysis/name_of_your_script.alf
