@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AbbyMoore 7.11.18
+# AbbyMoore 7.12.18
 # Install QA tools: Trimmomatic, FastQC, & MultiQC
 # Requires pip
 
@@ -17,4 +17,4 @@ unzip fastqc_v0.11.7.zip
 
 #MultiQC
 pip install multiqc
-multiqc .
+
