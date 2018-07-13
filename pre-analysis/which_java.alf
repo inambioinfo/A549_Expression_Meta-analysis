@@ -1,0 +1,6 @@
+Job -title {A549 initial QC} -serialsubtasks 0 -subtasks {
+Task -title {QC_pre-trim.sh} -cmds {
+RemoteCmd {/helga/cluster/abem16/lung_project/scripts/pre-analysis/which_java.sh} -service {Linux}
+}
+}
+
